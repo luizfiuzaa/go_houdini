@@ -2,7 +2,7 @@
 # go_houdini
 A faster way to create a `.go` file with basic structure, imports, and function stubs.
 
-<img src="https://github.com/luizfiuzaa/go_houdini/doc/assets/gopher.png" width="150">
+<img src="https://github.com/luizfiuzaa/go_houdini/blob/main/doc/assets/gopher.png" width="150">
 
 ## Features
 

@@ -1,7 +1,7 @@
 # go_houdini
 Uma maneira rápida de criar um arquivo `.go` com estrutura básica, imports e funções.
 
-<img src="https://github.com/luizfiuzaa/go_houdini/doc/assets/gopher.png" width="150">
+<img src="https://github.com/luizfiuzaa/go_houdini/blob/main/doc/assets/gopher.png" width="150">
 
 ## Funcionalidades
 
