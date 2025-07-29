@@ -1,8 +1,10 @@
 
 # go_houdini
+<a href="https://github.com/luizfiuzaa/go_houdini/blob/main/doc/README_pt-br.md">[pt-br]</a>
+
 A faster way to create a `.go` file with basic structure, imports, and function stubs.
 
-<img src="https://github.com/luizfiuzaa/go_houdini/blob/main/doc/assets/gopher.png" width="150">
+![Gopher wizard](doc/assets/gopher.png)
 
 ## Features
 

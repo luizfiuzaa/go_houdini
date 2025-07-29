@@ -1,7 +1,9 @@
 # go_houdini
+<a href="https://github.com/luizfiuzaa/go_houdini/blob/main/README.md">[english]</a>
+
 Uma maneira rápida de criar um arquivo `.go` com estrutura básica, imports e funções.
 
-<img src="https://github.com/luizfiuzaa/go_houdini/blob/main/doc/assets/gopher.png" width="150">
+![Gopher wizard](assets/gopher.png)
 
 ## Funcionalidades
 
