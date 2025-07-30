@@ -3,7 +3,7 @@
 
 Uma maneira rápida de criar um arquivo `.go` com estrutura básica, imports e funções.
 
-![Gopher wizard](assets/gopher.png)
+![Gopher wizard](./assets/gopher.png)
 
 ## Funcionalidades
 
@@ -16,12 +16,17 @@ Uma maneira rápida de criar um arquivo `.go` com estrutura básica, imports e f
 
 ## Como usar
 
-1. **Compile o script:**
+1. **Inicie os módulos Go (se ainda não tiver feito):**
+   ```sh
+   go mod init go_houdini
+   ```
+
+2. **Compile o script:**
    ```sh
    go build -o go_houdini.exe houdini.go
    ```
 
-2. **Execute o script:**
+3. **Execute o script:**
    ```sh
    ./go_houdini.exe
    ```
@@ -30,7 +35,7 @@ Uma maneira rápida de criar um arquivo `.go` com estrutura básica, imports e f
    - Pacotes para importar (separados por espaço, ou pressione Enter para pular)
    - Nomes das funções (separados por espaço, ou pressione Enter para pular)
 
-3. O script irá gerar um arquivo Go com a estrutura especificada.
+4. O script irá gerar um arquivo Go com a estrutura especificada.
 
 ## Como adicionar à variável de ambiente (Windows)
 
@@ -49,6 +54,4 @@ Para usar o `go_houdini` em qualquer terminal:
    go_houdini
    ```
 
-Agora você pode usar o `go_houdini` de qualquer diretório.
-
----
+Agora você pode usar o `go_houdini` de qualquer

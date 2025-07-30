@@ -1,4 +1,3 @@
-
 # go_houdini
 <a href="https://github.com/luizfiuzaa/go_houdini/blob/main/doc/README_pt-br.md">[pt-br]</a>
 
@@ -17,12 +16,17 @@ A faster way to create a `.go` file with basic structure, imports, and function 
 
 ## Usage
 
-1. **Build the script:**
+1. **Initialize Go modules (if not already):**
+   ```sh
+   go mod init go_houdini
+   ```
+
+2. **Build the script:**
    ```sh
    go build -o go_houdini.exe houdini.go
    ```
 
-2. **Run the script:**
+3. **Run the script:**
    ```sh
    ./go_houdini.exe
    ```
@@ -31,7 +35,7 @@ A faster way to create a `.go` file with basic structure, imports, and function 
    - Packages to import (space separated, or press Enter to skip)
    - Function names (space separated, or press Enter to skip)
 
-3. The script will generate a Go file with the specified structure.
+4. The script will generate a Go file with the specified structure.
 
 ## Setting as an Environment Variable (Windows)
 
@@ -39,15 +43,15 @@ To use `go_houdini` from any terminal window:
 
 1. Copy `go_houdini.exe` to a folder, e.g., `C:\tools\go_houdini`.
 2. Add this folder to your system `PATH`:
-  - Press `Win + R`, type `sysdm.cpl`, and press Enter.
-  - Go to the **Advanced** tab and click **Environment Variables**.
- - Under **System variables**, select `Path` and click **Edit**.
-  - Click **New** and add `C:\tools\go_houdini`.
-  - Click **OK** to save.
+   - Press `Win + R`, type `sysdm.cpl`, and press Enter.
+   - Go to the **Advanced** tab and click **Environment Variables**.
+   - Under **System variables**, select `Path` and click **Edit**.
+   - Click **New** and add `C:\tools\go_houdini`.
+   - Click **OK** to save.
 
 3. Open a new terminal and run:
    ```sh
    go_houdini
    ```
 
-Now you can use `go_houdini` from any directory.
+Now you can use `go_houdini` from any
