@@ -1,6 +1,6 @@
 package structs
 
 type File struct {
-	FileName string
+	Name string
 	Code string
 }
