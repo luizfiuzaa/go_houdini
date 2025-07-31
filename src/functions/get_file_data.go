@@ -3,6 +3,7 @@ package functions
 import (
   "fmt"
   "go_houdini/src/structs"
+  "go_houdini/src/validator"
   "go_houdini/src/functions/utils"
 )
 
@@ -13,7 +14,7 @@ func GetFileData() structs.FileData{
 	var file_functions string
 
 	fmt.Println("[HOUDINI WAS INVOKED!]")
-	for utils.ValidateFileName(name) {
+	for validator.ValidateFileName(name) {
 		fmt.Println("Enter a file name:")
 		name = utils.GetInfo() 
 		fmt.Println()
@@ -34,7 +35,7 @@ func GetFileData() structs.FileData{
 	file_functions = utils.GetInfo() 
 	fmt.Println()
 
-	fmt.Printf("Houdini will do some magic to create your '%s' file\n", utils.ValidateExtension(name))
+	fmt.Printf("Houdini will do some magic to create your '%s' file\n", validator.ValidateExtension(name))
 
 	file_code := structs.FileCode{
 		FilePackage: file_package,

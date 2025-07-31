@@ -1,4 +1,4 @@
-package utils
+package writer
 
 import (
   "strings"
@@ -7,7 +7,7 @@ import (
 func WriteImports(imports string) string{
 	if(imports != ""){
 		imports_list := strings.Fields(imports)
-		writed_code := "import (\n"
+		writed_code := "import(\n"
 		for _, pkg := range imports_list {
 			writed_code += "  \"" + pkg + "\"\n"
 		}

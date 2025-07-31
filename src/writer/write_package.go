@@ -1,4 +1,4 @@
-package utils
+package writer
 
 func WritePackage(package_name string) string{
 	var package_define = "package "
