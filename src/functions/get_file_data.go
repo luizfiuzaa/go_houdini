@@ -30,7 +30,7 @@ func GetFileData() structs.FileData{
 	fmt.Println()
 	
 	fmt.Println("[SPACE SEPARATED]")
-	fmt.Printf("Enter the functions name (Enter to jump this part):")
+	fmt.Println("Enter the functions name (Enter to jump this part):")
 	file_functions = utils.GetInfo() 
 	fmt.Println()
 
