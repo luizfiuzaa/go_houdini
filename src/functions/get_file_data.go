@@ -13,29 +13,21 @@ func GetFileData() structs.FileData{
 	var file_imports string
 	var file_functions string
 
-	fmt.Println("[HOUDINI WAS INVOKED!]")
+	fmt.Println()
 	for validator.ValidateFileName(name) {
-		fmt.Println("Enter a file name:")
-		name = utils.GetInfo() 
-		fmt.Println()
+		fmt.Print("📦 File name: ")
+		name = utils.GetInfo()
 	}
-	
-	fmt.Println("[PACKAGE NAME]")
-	fmt.Println("Want to define a package name? (by default it will be 'main'):")
+
+	fmt.Print("📦 Package name (default 'main'): ")
 	file_package = utils.GetInfo()
-	fmt.Println()
 
-	fmt.Println("[SPACE SEPARATED]")
-	fmt.Println("What to import? (Enter to jump this part):")
-	file_imports = utils.GetInfo() 
-	fmt.Println()
-	
-	fmt.Println("[SPACE SEPARATED]")
-	fmt.Println("Enter the functions name (Enter to jump this part):")
-	file_functions = utils.GetInfo() 
-	fmt.Println()
+	fmt.Print("📚 Imports (space separated): ")
+	file_imports = utils.GetInfo()
 
-	fmt.Printf("Houdini will do some magic to create your '%s' file\n", validator.ValidateExtension(name))
+	fmt.Print("🔧 Functions (space separated): ")
+	file_functions = utils.GetInfo()
+	fmt.Println()
 
 	file_code := structs.FileCode{
 		FilePackage: file_package,
