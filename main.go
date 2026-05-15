@@ -9,16 +9,18 @@ import (
 )
 
 func printHelp() {
-	fmt.Println(`Usage: houdini <command>
+	fmt.Println(`Usage: houdini <command> [args]
 
 Commands:
-  create    Interactively scaffold a new .go file
+  create [filename]    Interactively scaffold a new .go file
+                       Optionally pass the filename to skip the name prompt
 
 Flags:
   -h, --help    Show this help message
 
 Examples:
   houdini create
+  houdini create hello_world
   houdini --help`)
 }
 
@@ -30,7 +32,11 @@ func main() {
 
 	switch os.Args[1] {
 	case "create":
-		fileData := functions.GetFileData()
+		var filename string
+		if len(os.Args) >= 3 {
+			filename = os.Args[2]
+		}
+		fileData := functions.GetFileData(filename)
 		code := functions.GenerateCode(fileData.FileContent)
 		file := structs.File{Name: fileData.FileName, Code: code}
 		functions.CreateFile(&file)

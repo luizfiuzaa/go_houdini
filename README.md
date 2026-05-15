@@ -1,57 +1,91 @@
 # go_houdini
 <a href="https://github.com/luizfiuzaa/go_houdini/blob/main/doc/README_pt-br.md">[pt-br]</a>
 
-A faster way to create a `.go` file with basic structure, imports, and function stubs.
+A CLI tool to quickly scaffold `.go` files with a defined structure — package, imports, and function stubs — without manual boilerplate.
 
 ![Gopher wizard](doc/assets/gopher.png)
 
 ## Features
 
-- Quickly scaffold a new Go file with:
-  - File name prompt
-  - Imports (space separated)
-  - Function stubs (space separated)
+- Interactive prompts to scaffold a new Go file
+- Configurable package name (defaults to `main`)
+- Imports and function stubs generated from space-separated input
 - Prevents overwriting existing files
-- Adds a comment with project info
+- Zero external dependencies
+
+## Requirements
+
+- [Go 1.23+](https://golang.org/dl/)
+
+## Installation
+
+Clone the repository and build the binary:
+
+```sh
+git clone https://github.com/luizfiuzaa/go_houdini.git
+cd go_houdini
+go build -o houdini .
+```
+
+To use `houdini` from any directory, move the binary to a folder in your `PATH`:
+
+```sh
+# Linux / macOS
+mv houdini /usr/local/bin/
+
+# Windows — move houdini.exe to a folder already in your PATH, e.g. C:\tools\
+```
 
 ## Usage
 
-1. **Initialize Go modules (if not already):**
-   ```sh
-   go mod init go_houdini
-   ```
+### Create a new Go file
 
-2. **Build the script:**
-   ```sh
-   go build -o go_houdini.exe houdini.go
-   ```
+```sh
+houdini create
+```
 
-3. **Run the script:**
-   ```sh
-   ./go_houdini.exe
-   ```
-   Follow the prompts to enter:
-   - The file name (no need to add `.go`)
-   - Packages to import (space separated, or press Enter to skip)
-   - Function names (space separated, or press Enter to skip)
+You can also pass the filename directly to skip the name prompt:
 
-4. The script will generate a Go file with the specified structure.
+```sh
+houdini create hello_world
+```
 
-## Setting as an Environment Variable (Windows)
+**Example session:**
 
-To use `go_houdini` from any terminal window:
+```
+📦 Package name (default 'main'): main
+📚 Imports (space separated): fmt time
+🔧 Functions (space separated): initApp startServer
 
-1. Copy `go_houdini.exe` to a folder, e.g., `C:\tools\go_houdini`.
-2. Add this folder to your system `PATH`:
-   - Press `Win + R`, type `sysdm.cpl`, and press Enter.
-   - Go to the **Advanced** tab and click **Environment Variables**.
-   - Under **System variables**, select `Path` and click **Edit**.
-   - Click **New** and add `C:\tools\go_houdini`.
-   - Click **OK** to save.
+✅ File created successfully! Enjoy!
+```
 
-3. Open a new terminal and run:
-   ```sh
-   go_houdini
-   ```
+This generates `hello_world.go`:
 
-Now you can use `go_houdini` from any
+```go
+package main
+
+import(
+  "fmt"
+  "time"
+)
+
+func initApp() {}
+
+func startServer() {}
+```
+
+### Help
+
+```sh
+houdini --help
+houdini -h
+```
+
+## Contributing
+
+Pull requests are welcome. For significant changes, please open an issue first to discuss what you'd like to change.
+
+## License
+
+[MIT](LICENSE)

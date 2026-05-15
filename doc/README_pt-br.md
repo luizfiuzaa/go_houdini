@@ -1,57 +1,91 @@
 # go_houdini
 <a href="https://github.com/luizfiuzaa/go_houdini/blob/main/README.md">[english]</a>
 
-Uma maneira rápida de criar um arquivo `.go` com estrutura básica, imports e funções.
+Uma ferramenta de linha de comando para criar arquivos `.go` com estrutura definida — pacote, imports e funções — sem precisar escrever boilerplate manualmente.
 
 ![Gopher wizard](./assets/gopher.png)
 
 ## Funcionalidades
 
-- Crie rapidamente um novo arquivo Go com:
-  - Pergunta pelo nome do arquivo
-  - Imports (separados por espaço)
-  - Funções (separadas por espaço)
-- Evita sobrescrever arquivos existentes
-- Adiciona um comentário com informações do projeto
+- Prompts interativos para scaffolding de arquivos Go
+- Nome do pacote configurável (padrão `main`)
+- Imports e funções gerados a partir de entrada separada por espaços
+- Impede a sobrescrita de arquivos existentes
+- Zero dependências externas
+
+## Requisitos
+
+- [Go 1.23+](https://golang.org/dl/)
+
+## Instalação
+
+Clone o repositório e compile o binário:
+
+```sh
+git clone https://github.com/luizfiuzaa/go_houdini.git
+cd go_houdini
+go build -o houdini .
+```
+
+Para usar o `houdini` de qualquer diretório, mova o binário para uma pasta no seu `PATH`:
+
+```sh
+# Linux / macOS
+mv houdini /usr/local/bin/
+
+# Windows — mova o houdini.exe para uma pasta já no PATH, ex: C:\tools\
+```
 
 ## Como usar
 
-1. **Inicie os módulos Go (se ainda não tiver feito):**
-   ```sh
-   go mod init go_houdini
-   ```
+### Criar um novo arquivo Go
 
-2. **Compile o script:**
-   ```sh
-   go build -o go_houdini.exe houdini.go
-   ```
+```sh
+houdini create
+```
 
-3. **Execute o script:**
-   ```sh
-   ./go_houdini.exe
-   ```
-   Siga as instruções para informar:
-   - O nome do arquivo (não precisa adicionar `.go`)
-   - Pacotes para importar (separados por espaço, ou pressione Enter para pular)
-   - Nomes das funções (separados por espaço, ou pressione Enter para pular)
+Você também pode passar o nome do arquivo diretamente para pular o prompt de nome:
 
-4. O script irá gerar um arquivo Go com a estrutura especificada.
+```sh
+houdini create hello_world
+```
 
-## Como adicionar à variável de ambiente (Windows)
+**Exemplo de sessão:**
 
-Para usar o `go_houdini` em qualquer terminal:
+```
+📦 Package name (default 'main'): main
+📚 Imports (space separated): fmt time
+🔧 Functions (space separated): initApp startServer
 
-1. Copie o `go_houdini.exe` para uma pasta, por exemplo: `C:\tools\go_houdini`.
-2. Adicione essa pasta ao seu `PATH` do sistema:
-   - Pressione `Win + R`, digite `sysdm.cpl` e pressione Enter.
-   - Vá até a aba **Avançado** e clique em **Variáveis de Ambiente**.
-   - Em **Variáveis do sistema**, selecione `Path` e clique em **Editar**.
-   - Clique em **Novo** e adicione `C:\tools\go_houdini`.
-   - Clique em **OK** para salvar.
+✅ File created successfully! Enjoy!
+```
 
-3. Abra um novo terminal e execute:
-   ```sh
-   go_houdini
-   ```
+Isso gera o arquivo `hello_world.go`:
 
-Agora você pode usar o `go_houdini` de qualquer
+```go
+package main
+
+import(
+  "fmt"
+  "time"
+)
+
+func initApp() {}
+
+func startServer() {}
+```
+
+### Ajuda
+
+```sh
+houdini --help
+houdini -h
+```
+
+## Contribuindo
+
+Pull requests são bem-vindos. Para mudanças significativas, abra uma issue antes para discutir o que deseja alterar.
+
+## Licença
+
+[MIT](../LICENSE)
