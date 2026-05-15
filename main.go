@@ -1,18 +1,44 @@
 package main
 
 import (
-	"go_houdini/src/structs"
+	"fmt"
+	"os"
+
 	"go_houdini/src/functions"
+	"go_houdini/src/structs"
 )
 
-func main(){
-	file_data := functions.GetFileData()
-	writed_code := functions.GenerateCode(file_data.FileContent)
+func printHelp() {
+	fmt.Println(`Usage: houdini <command>
 
-	file := structs.File{
-		Name: file_data.FileName,
-		Code: writed_code,
+Commands:
+  create    Interactively scaffold a new .go file
+
+Flags:
+  -h, --help    Show this help message
+
+Examples:
+  houdini create
+  houdini --help`)
+}
+
+func main() {
+	if len(os.Args) < 2 {
+		printHelp()
+		os.Exit(1)
 	}
 
-	functions.CreateFile(&file)
+	switch os.Args[1] {
+	case "create":
+		fileData := functions.GetFileData()
+		code := functions.GenerateCode(fileData.FileContent)
+		file := structs.File{Name: fileData.FileName, Code: code}
+		functions.CreateFile(&file)
+	case "-h", "--help":
+		printHelp()
+	default:
+		fmt.Fprintf(os.Stderr, "Unknown command: %s\n\n", os.Args[1])
+		printHelp()
+		os.Exit(1)
+	}
 }

@@ -5,8 +5,7 @@ import (
 )
 
 func EndMessage(){
-  fmt.Printf("\n\nHOUDINI HAS CREATED YOUR FILE!\n\nENJOY!\n")
-	fmt.Println()
+  fmt.Println("✅ File created successfully! Enjoy!")
 }
 
 
